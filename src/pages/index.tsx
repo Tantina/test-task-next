@@ -41,6 +41,8 @@ const BlogListingPage: FC = () => {
     })
   );
 
+  const withPosts: boolean = !!blogPosts?.length;
+
   return (
     <Fragment>
       <Head>
@@ -48,7 +50,11 @@ const BlogListingPage: FC = () => {
         <meta name="keywords" content="blog"></meta>
       </Head>
 
-      <BlogGrid posts={blogPosts} />
+      {withPosts ? (
+        <BlogGrid posts={blogPosts} />
+      ) : (
+        <p>There are not any posts yet.</p>
+      )}
     </Fragment>
   );
 };
