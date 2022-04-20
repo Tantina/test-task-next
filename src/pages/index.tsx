@@ -30,8 +30,8 @@ const BlogListingPage: FC = () => {
     variables: { limit: 10, order: "title_ASC" },
   });
 
-  if (error) return <Error error={error} />;
   if (loading) return <Loader />;
+  if (error) return <Error error={error} />;
 
   const blogPosts: IPostItem[] = data?.blogPostCollection?.items?.map(
     (item) => ({

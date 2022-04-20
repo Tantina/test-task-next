@@ -22,8 +22,8 @@ const PostPage = () => {
     variables: { id: postId },
   });
 
-  if (error) return <Error error={error} />;
   if (loading) return <Loader />;
+  if (error) return <Error error={error} />;
 
   const { blogPost } = data;
 
