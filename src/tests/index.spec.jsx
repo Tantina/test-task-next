@@ -2,7 +2,6 @@ import { render, waitFor } from "@testing-library/react";
 import BlogListingPage from "../pages/index";
 import { MockedProvider } from "@apollo/client/testing";
 import { GET_BLOG_POSTS } from "../queries";
-import "@testing-library/jest-dom";
 
 let mocks = [
   {
