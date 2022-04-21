@@ -1,25 +1,25 @@
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import { Fragment } from "react";
+import { FC, Fragment } from "react";
 import Head from "next/head";
-import PostDetails from "../../components/PostDetails";
-import { GET_POST_BY_ID } from "../../queries";
-import Error from "../../components/UI/Error";
-import Loader from "../../components/UI/Loader";
-import { IPostItem } from "../../types/post";
+import PostDetails from "../../../components/PostDetails";
+import { GET_POST_BY_ID } from "../../../queries";
+import Error from "../../../components/UI/Error";
+import Loader from "../../../components/UI/Loader";
+import { IPostItem } from "../../../types/post";
 
 interface IData {
   blogPost: IPostItem;
 }
 interface IDataVars {
-  id: string | string[];
+  id: string;
 }
 
-const PostPage = () => {
+const PostPage: FC = () => {
   const router = useRouter();
   const { postId } = router.query;
   const { data, loading, error } = useQuery<IData, IDataVars>(GET_POST_BY_ID, {
-    variables: { id: postId },
+    variables: { id: String(postId) },
   });
 
   if (loading) return <Loader />;

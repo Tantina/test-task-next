@@ -7,7 +7,7 @@ import { IPostItem } from "../../types/post";
 const PostCard: FC<IPostItem> = ({ id, title, preface }) => {
   return (
     <S.Li>
-      <Link href={`/${id}`}>
+      <Link href={`/post/${id}`}>
         <S.Link href={id} aria-label={`Navigate to "${title}" post`}>
           <article>
             <S.Headline>{title}</S.Headline>
